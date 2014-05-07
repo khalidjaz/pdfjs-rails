@@ -26,6 +26,16 @@ module Pdfjs
       :zoom_buttons,
       :download
     ]
+
+    CUSTOM = [
+      :page_selector,
+      :sidebar,
+      :page_buttons,
+      :zoom_buttons,
+      :zoom_select,
+      :fullscreen,
+      :bookmark
+    ]
     
     def pdf_viewer(filename, options={})
       toolbar = options.fetch(:toolbar, :default)
@@ -33,6 +43,7 @@ module Pdfjs
       toolbar = case toolbar
       when :everything; EVERYTHING
       when :minimal; MINIMAL
+      when :custom; CUSTOM
       else DEFAULT
       end unless toolbar.is_a?(Array)
       
